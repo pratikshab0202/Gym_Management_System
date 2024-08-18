@@ -70,5 +70,18 @@ public class UserService {
 		System.out.println("User Updated");
 	}
 
+	public User loginUser(String user_name, String pass) {
+        Session s=f.openSession();
+        Criteria c=s.createCriteria(User.class);
+        List<User>lt=c.list();
+        User obj=new User();
+        for(User u:lt) {
+        	if(u.getUser_name().equals(user_name) && u.getPass().equals(pass)) {
+        		obj=u;
+        	}
+        }
+		return obj;
+	}
+
 	
 }
