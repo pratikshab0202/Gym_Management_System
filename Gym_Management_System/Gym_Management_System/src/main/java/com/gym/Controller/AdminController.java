@@ -68,6 +68,12 @@ public class AdminController {
 
 		return u.getUser(uid);
 	}
+	
+	@GetMapping("/loginUser/{user_name}/{pass}")
+	public User loginUser(@PathVariable String user_name,@PathVariable String pass) {
+
+		return u.loginUser(user_name,pass);
+	}
 
 	@DeleteMapping("/deleteUser")
 	public void deleteUser(@RequestParam int uid) {
